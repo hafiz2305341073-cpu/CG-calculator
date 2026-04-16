@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CG Calculator for University Students</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card hero">
+      <p class="eyebrow">University Toolkit</p>
+      <h1>CGPA Calculator</h1>
+      <p>Track semester GPA and cumulative CGPA with credits and grades.</p>
+    </section>
+
+    <section class="card controls">
+      <div class="grid two-col">
+        <label>
+          Grade Scale
+          <select id="scaleSelect">
+            <option value="10">10-Point Scale</option>
+            <option value="4">4-Point Scale</option>
+          </select>
+        </label>
+
+        <label>
+          Previous Total Credits (Optional)
+          <input id="previousCredits" type="number" min="0" step="0.5" value="0" placeholder="e.g. 60">
+        </label>
+
+        <label>
+          Previous CGPA (Optional)
+          <input id="previousCgpa" type="number" min="0" step="0.01" value="0" placeholder="e.g. 8.20">
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="table-header">
+        <h2>Courses</h2>
+        <button id="addCourse" type="button">+ Add Course</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Credits</th>
+              <th>Grade</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="courseRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card actions">
+      <button id="calculate" type="button" class="primary">Calculate</button>
+      <button id="reset" type="button" class="secondary">Reset</button>
+    </section>
+
+    <section class="card results" id="results">
+      <h2>Results</h2>
+      <div class="result-grid">
+        <article>
+          <p class="result-label">Semester GPA</p>
+          <p class="result-value" id="semesterGpa">0.00</p>
+        </article>
+        <article>
+          <p class="result-label">Cumulative CGPA</p>
+          <p class="result-value" id="cumulativeCgpa">0.00</p>
+        </article>
+        <article>
+          <p class="result-label">Current Semester Credits</p>
+          <p class="result-value" id="semesterCredits">0.00</p>
+        </article>
+      </div>
+      <p id="message" class="message"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
